@@ -8,7 +8,7 @@ jobs:
         name: deploy release
         runs-on: ubuntu-latest
         outputs:
-          notifications: ${{ steps.set-matrix.outputs.failures }}
+          notifications: ${{ steps.set-matrix.outputs.notifications }}
         steps:
             - uses: actions/checkout@v2
             - name: Prep Notifications
