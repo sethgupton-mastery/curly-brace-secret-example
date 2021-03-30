@@ -1,0 +1,27 @@
+[
+    {
+     "Name": "test-one-api",
+     "Success": true,
+     "Error": ""
+    },
+    {
+     "Name": "test-two-api",
+     "Success": false,
+     "Error": "I failed. I am sorry."
+    },
+    {
+     "Name": "test-three-api",
+     "Success": true,
+     "Error": ""
+    },
+    {
+     "Name": "test-four-api",
+     "Success": false,
+     "Error": "I have also failed. I am sorry."
+    },
+    {
+     "Name": "test-five-api",
+     "Success": true,
+     "Error": ""
+    }
+   ]
