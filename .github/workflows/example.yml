@@ -13,19 +13,18 @@ jobs:
             - uses: actions/checkout@v2
             - name: Prep Notifications
               id: set-matrix
-              if: ${{ always() }}
               run: |
                 echo ${{ secrets.I_HAVE_PRETTY_JSON }}
                 echo "\r\n"
-                jq -c '[.[] | select(.Success==false)]'
+                jq -c '[.[] | select(.Success==false)]' release_results.json
                 echo "\r\n"
                 echo -e "::set-output name=notifications::{\"include\":$(jq -c '[.[] | select(.Success==false)]' release_results.json)}"
     notifications:
-      name: Send Failute Notifications
-      needs: deploy
-      runs-on: ubuntu-latest
-      strategy:
-        matrix: ${{fromJson(needs.deploy.outputs.notifications)}}
-      steps:
-        - name: Do the thing
-          run: echo ${{ matrix.Name }}
+        name: Send Failute Notifications
+        needs: deploy
+        runs-on: ubuntu-latest
+        strategy:
+            matrix: ${{fromJson(needs.deploy.outputs.notifications)}}
+        steps:
+            - name: Do the thing
+              run: echo ${{ matrix.Name }}
