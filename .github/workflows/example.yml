@@ -14,7 +14,7 @@ jobs:
             - name: Prep Notifications
               id: set-matrix
               run: |
-                echo ${{ secrets.I_HAVE_PRETTY_JSON }}
+                echo "${{ secrets.I_HAVE_PRETTY_JSON }}"
                 echo "\r\n"
                 jq -c '[.[] | select(.Success==false)]' release_results.json
                 echo "\r\n"
